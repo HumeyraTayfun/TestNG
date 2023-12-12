@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="istenen packageleri calistirma">
+
+      <test name="2.gun">
+         <packages>
+             <package name="tests.day02_Configuration_driver_kullanımı"></package>
+         </packages>
+      </test>
+</suite>

@@ -18,7 +18,7 @@ public class c03_pozitifLoginTesti {
     6- Basarili olarak giris yapilabildigini test edin
      */
 
-      @Test
+      @Test(groups = {"smoke","regression"})
     public void pozitifLoginTesti(){
 
           Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
@@ -30,6 +30,7 @@ public class c03_pozitifLoginTesti {
           ReusableMethods.bekle(1);
           testOtomasyonuPage.loginButonu.click();
           Assert.assertTrue(testOtomasyonuPage.logoutLinki.isDisplayed());
+          Driver.closeDriver();
 
       }
 }

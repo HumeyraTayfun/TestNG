@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="belirlenen classlari calistirma">
+    <test name="Login testleri">
+        <classes>
+            <class name="tests.day02_Configuration_driver_kullanımı.c03_pozitifLoginTesti"></class>
+            <class name="tests.day02_Configuration_driver_kullanımı.c04_negatifLoginTesti"></class>
+
+        </classes>
+    </test>
+</suite>
+        

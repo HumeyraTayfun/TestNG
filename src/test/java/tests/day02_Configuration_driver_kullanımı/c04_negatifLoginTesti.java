@@ -19,40 +19,42 @@ public class c04_negatifLoginTesti {
     5- Basarili olarak giris yapilamadigini test edin
      */
 
-      @Test
-    public void gecersizPasswordTesti(){
-         // 1- https://www.testotomasyonu.com/ anasayfasina gidin
-           Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
-           ReusableMethods.bekle(1);
-         // 2- account linkine basin
-          TestOtomasyonuPage testOtomasyonuPage=new TestOtomasyonuPage();
+      @Test(groups = "smoke")
+    public void gecersizPasswordTesti() {
+          // 1- https://www.testotomasyonu.com/ anasayfasina gidin
+          Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
+          ReusableMethods.bekle(1);
+          // 2- account linkine basin
+          TestOtomasyonuPage testOtomasyonuPage = new TestOtomasyonuPage();
           testOtomasyonuPage.accountLinki.click();
 
-        //  - gecerli username, gecersiz password
-          testOtomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty("toGecersizEmail"));
+          //  - gecerli username, gecersiz password
+          ReusableMethods.bekle(1);
+          testOtomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty("toGecerliEmail"));
           testOtomasyonuPage.passwordKutusu.sendKeys(ConfigReader.getProperty("toGecersizPassword"));
-         // 4- Login butonuna basarak login olun
+          // 4- Login butonuna basarak login olun
           ReusableMethods.bekle(1);
           testOtomasyonuPage.loginButonu.click();
-         // 5- Basarili olarak giris yapilamadigini test edin
-          ReusableMethods.bekle(1);
+          // 5- Basarili olarak giris yapilamadigini test edin
+          ReusableMethods.bekle(2);
           Assert.assertTrue(testOtomasyonuPage.emailKutusu.isDisplayed());
           Driver.closeDriver();
-
       }
 
-      @Test
+      @Test(groups = "regression")
     public void gecersizEmailTesti() {
           Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
           ReusableMethods.bekle(1);
           TestOtomasyonuPage testOtomasyonuPage=new TestOtomasyonuPage();
           testOtomasyonuPage.accountLinki.click();
           //gecersiz username, gecerli password
-          testOtomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty("toGecersizEmail"));
+          ReusableMethods.bekle(1);
+         testOtomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty("toGecersizEmail"));
           testOtomasyonuPage.passwordKutusu.sendKeys(ConfigReader.getProperty("toGecerliPassword"));
           ReusableMethods.bekle(1);
           testOtomasyonuPage.loginButonu.click();
           Assert.assertTrue(testOtomasyonuPage.emailKutusu.isDisplayed());
+          ReusableMethods.bekle(2);
           Driver.closeDriver();
 
 
@@ -61,7 +63,7 @@ public class c04_negatifLoginTesti {
       }
 
 
-      @Test
+      @Test(priority = 5)
     public void gecersizEmailGecersizPassword(){
           /*
     1- https://www.testotomasyonu.com/ anasayfasina gidin
@@ -74,14 +76,17 @@ public class c04_negatifLoginTesti {
      */
 
           Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
+          ReusableMethods.bekle(1);
           TestOtomasyonuPage testOtomasyonuPage=new TestOtomasyonuPage();
           testOtomasyonuPage.accountLinki.click();
-          testOtomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty("toGecersizEmail"));
-          testOtomasyonuPage.passwordKutusu.sendKeys(ConfigReader.getProperty("toGecersizPassword"));
+          ReusableMethods.bekle(1);
+         testOtomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty("toGecersizEmail"));
+         testOtomasyonuPage.passwordKutusu.sendKeys(ConfigReader.getProperty("toGecersizPassword"));
+          ReusableMethods.bekle(1);
           testOtomasyonuPage.loginButonu.click();
           Assert.assertTrue(testOtomasyonuPage.emailKutusu.isDisplayed());
+          ReusableMethods.bekle(2);
           Driver.closeDriver();
-
 
       }
 
